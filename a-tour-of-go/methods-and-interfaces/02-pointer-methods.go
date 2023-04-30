@@ -14,6 +14,7 @@ func (v Vertex) Abs() float64 {
 }
 
 // without pointer, it will do the Scale on a copy
+// pointer receiver is more common than value receiver
 func (v *Vertex) Scale(f float64) {
 	v.X = v.X * f
 	v.Y = v.Y * f
