@@ -9,6 +9,25 @@ var msg string
 
 var waitGroup sync.WaitGroup
 
+// func updateMessage(s string){
+// 	defer waitGroup.Done()
+// 	msg = s
+// }
+
+// func main() {
+// 	msg = "Hello, World!"
+
+// 	waitGroup.Add(2)
+
+// 	go updateMessage("Hello, update 1")
+// 	go updateMessage("Hello, update 2")
+
+// 	waitGroup.Wait()
+
+// 	fmt.Println(msg)
+
+// }
+
 func updateMessage(s string, mutex *sync.Mutex){
 	defer waitGroup.Done()
 
