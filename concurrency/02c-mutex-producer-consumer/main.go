@@ -26,7 +26,7 @@ type PizzaOrder struct {
 func (p *Producer) Close() error {
 	ch := make(chan error)
 	p.quit <- ch	
-	return <- ch
+	return <-ch
 }
 
 func makePizza(pizzaNumber int) *PizzaOrder {
@@ -92,7 +92,7 @@ func pizzeria(pizzaMaker *Producer) {
 				// we tried to make a pizza (we sent something to the data channel -- a chan PizzaOrder)
 			case pizzaMaker.data <- *currentPizza:
 
-			case quitChan := <- pizzaMaker.quit:
+			case quitChan := <-pizzaMaker.quit:
 				// close channels
 				close(pizzaMaker.data)
 				close(quitChan)
